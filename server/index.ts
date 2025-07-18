@@ -45,11 +45,11 @@ if (process.env.DATABASE_URL) {
       maxAge: 24 * 60 * 60 * 1000, // 24 hours
     },
   }));
-}
 
-// Passport configuration
-app.use(passport.initialize());
-app.use(passport.session());
+  // Passport configuration (only when session is available)
+  app.use(passport.initialize());
+  app.use(passport.session());
+}
 
 // API routes
 app.get('/api/health', (req, res) => {
